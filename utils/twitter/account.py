@@ -37,9 +37,9 @@ class Account:
     def __init__(self, email: str = None, username: str = None, password: str = None, session: Client = None, **kwargs):
         self.save = kwargs.get('save', True)
         self.debug = kwargs.get('debug', 0)
-        self.gql_api = 'http://twitter.com/i/api/graphql'
-        self.v1_api = 'http://api.twitter.com/1.1'
-        self.v2_api = 'http://twitter.com/i/api/2'
+        self.gql_api = 'https://twitter.com/i/api/graphql'
+        self.v1_api = 'https://api.twitter.com/1.1'
+        self.v2_api = 'https://twitter.com/i/api/2'
         self.logger = self._init_logger(**kwargs)
         self.session = self._validate_session(email, username, password, session, **kwargs)
 
