@@ -11,11 +11,13 @@ with open("proxy.secret") as f:
     proxy = f.read()
 accounts = {}
 for id in secret:
-    accounts[id] = Account(cookies={"ct0": secret[id]["ct0"], "auth_token": secret[id]["auth_token"]}, session=Client(proxies={"https://": f"http://{proxy}", "http://": f"http://{proxy}"}))
+    accounts[id] = Account(cookies={"ct0": secret[id]["ct0"], "auth_token": secret[id]["auth_token"]}, session=Client())
 print(accounts)
 
 # get the user id of @wired
-id = get_id("wired")
+id = get_id("DrDemography")
+print(id)
 for account in accounts.values():
     r = account.follow(id)
+    print(r)
     print(f"Followed @wired from @{list(accounts.keys())[list(accounts.values()).index(account)]}")
