@@ -1,5 +1,5 @@
 ## This is the /keys directory
-This direcotry contains files associated with the acconts used in the application, this directory is empty by default and all files in this directory that end in .secret are ignored by git and will not be uploaded to any repository on github.
+This directory contains files associated with the acconts used in the application, this directory is empty by default and all files in this directory that end in .secret are ignored by git and will not be uploaded to any repository on github.
 
 ## Adding a new account
 1. First create a new file in this directory with the name of the account you want to add, in the format of `accountname.secret`
