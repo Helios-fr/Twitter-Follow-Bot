@@ -28,6 +28,16 @@ class Manager:
             account.follow(id)
             print(f"Followed {username} from @{list(self.accounts.keys())[list(self.accounts.values()).index(account)]}")
 
+    def follow_with_account(self, account, username=None, id=None):
+        if id is None and username is not None:
+            from . import get_id
+            id = get_id(username)
+        elif id is None and username is None:
+            raise ValueError("Either username or id must be provided")
+        
+        account.follow(username)
+        return f"Followed {username} from @{list(self.accounts.keys())[list(self.accounts.values()).index(account)]}\n"
+
 if __name__ == "__main__":
     # run main.py instead
     import os
