@@ -7,5 +7,5 @@ print(r.text)
 with open("proxy.secret") as f:
     proxy = f.read()
 print(proxy)
-r = requests.get("http://api.ipify.org", proxies={"http": f"http://{proxy}", "https": f"https://{proxy}"})
+r = requests.get("https://api.ipify.org", proxies={"http": f"http://{proxy}", "https": f"http://{proxy}"})
 print(r.text)
