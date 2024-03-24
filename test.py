@@ -11,7 +11,7 @@ with open("proxy.secret") as f:
     proxy = f.read()
 accounts = {}
 for id in secret:
-    accounts[id] = Account(cookies={"ct0": secret[id]["ct0"], "auth_token": secret[id]["auth_token"]}, session=Client(proxies={"https": proxy}))
+    accounts[id] = Account(cookies={"ct0": secret[id]["ct0"], "auth_token": secret[id]["auth_token"]}, session=Client(proxies={"http://": f"http://{proxy}"}))
 print(accounts)
 
 # get the user id of @wired
