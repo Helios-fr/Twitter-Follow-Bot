@@ -87,6 +87,10 @@ class Application(ttk.Frame):
             self.log_text.insert('end', f'Finished following {username}.\n')
             self.log_text.config(state='disabled')  # disable the widget
             self.update()
+        
+        self.log_text.config(state='normal')  # enable the widget
+        self.log_text.insert('end', 'Finished following all users.\n')
+        self.log_text.config(state='disabled')
 
 root = tk.Tk()
 root.geometry("400x700")
