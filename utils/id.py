@@ -1,4 +1,4 @@
 def get_id(username: str) -> str:
     import requests
-    response = requests.get('https://twitvd.com/twuserid.php', params={'username': 'DrDemography'})
+    response = requests.get('https://twitvd.com/twuserid.php', params={'username': username})
     return response.json()["data"]["user_id"]
