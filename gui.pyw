@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog, ttk
 from utils import Manager
-import sv_ttk
 
 class Application(ttk.Frame):
     def __init__(self, master=None):
@@ -14,6 +13,7 @@ class Application(ttk.Frame):
         # add text to the log
         self.log_text.config(state='normal')
         self.log_text.insert('end', "Welcome, Application Logs will appear here during execution\n")
+        self.log_text.config(state='disabled')
 
     def create_widgets(self):
         self.title_label = ttk.Label(self, text="Twitter Follow Bot", font=("Helvetica", 16))
@@ -29,7 +29,7 @@ class Application(ttk.Frame):
         self.amount_label.grid(row=2, column=0, padx=5, pady=5)
 
         vcmd = (self.register(self.validate), '%P')
-        self.amount_entry = ttk.Entry(self, validate='key', validatecommand=vcmd, width=50)
+        self.amount_entry = ttk.Entry(self, validate='key', style='Accent.TEntry', validatecommand=vcmd, width=50)
         self.amount_entry.grid(row=2, column=1, padx=5, pady=5)
 
         self.proxy_checkbutton = ttk.Checkbutton(self, text="Use proxy", variable=self.use_proxies)
@@ -92,8 +92,9 @@ root = tk.Tk()
 root.geometry("400x700")
 root.minsize(700, 450)
 root.maxsize(700, 450)
-root.title("Twitter Follow Bot")
+root.title("Twitter Follow Bot by @qHelios")
 root.iconbitmap("icon.ico")
-sv_ttk.set_theme("dark")
+root.tk.call('source', 'forest-dark.tcl')
+ttk.Style().theme_use('forest-dark')
 app = Application(master=root)
 app.mainloop()
